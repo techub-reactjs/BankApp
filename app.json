@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "fixer",
-    "slug": "fixer",
+    "name": "BankRoll",
+    "slug": "BankRoll",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,10 +24,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.laherasif.BankRoll"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "127db2ab-5763-416b-bb09-a966fe72771a"
+      }
     }
   }
 }
