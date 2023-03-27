@@ -3,24 +3,24 @@ import {
   Image,
   SafeAreaView,
   Text,
-  TouchableOpacity,
+  Pressable,
+  // TouchableOpacity,
 } from "react-native";
-import React, { useCallback, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import logo from "../../assests/Images/Logo-white.png";
 import finger from "../../assests/Images/finger.png";
+import facebook from "../../assests/Images/facebook.png";
+import apple from "../../assests/Images/apple.png";
+import google from "../../assests/Images/google.png";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { StatusBar } from "expo-status-bar";
+
 const Register = () => {
   const navigation = useNavigation();
 
   const names = ["Saving", "Banking", "Rewards"];
   const [newName, setnewName] = useState(0);
-
-  // const shuffle = useCallback(() => {
-  //   const index = Math.floor(Math.random() * names.length);
-  //   setnewName(names[index]);
-  // }, []);
 
   useEffect(() => {
     const intervalID = setInterval(() => {
@@ -63,24 +63,36 @@ const Register = () => {
                 Lorem Ipsum is simply dummy text of the printing and{" "}
               </Text>
             </View>
-            <View className="">
+            <Pressable className="" onPress={() => navigation.navigate('EmailSignup')} >
               <Text className="text-[18px] text-center text-white">
                 Register with Email
               </Text>
-            </View>
+            </Pressable>
           </View>
-          <View style={{ flex: 2 ,   }} className="border  justify-center">
-            <View className=" border ">
-              <Text className="text-center">or sign up with</Text>
+          <View style={{ flex: 1}} className=" pt-3 justify-center max-w-[300px] m-auto">
+            <View className="  flex flex-row justify-between items-center ">
+              <View className="border bg-[#D6D6D6] border-[#D6D6D6] w-[30%]"></View>
+              <Text className="text-center px-5 text-white">
+                or sign up with
+              </Text>
+              <View className="border bg-[#D6D6D6] border-[#D6D6D6] w-[30%] "></View>
+            </View>
+            <View className="flex flex-row justify-center pt-8">
+              <Image source={google} className="object-contain w-[56px] h-[56px]"/>
+              <Image source={facebook} className="object-contain w-[56px] mx-5 h-[56px]"/>
+              <Image source={apple} className="object-contain w-[56px] h-[56px]"/>
+            </View>
+            <View className="pt-3 left-[60px]">
+              <Text className="text-white text-[14px]">Have an account? </Text>
             </View>
           </View>
 
-          <View className=" border justify-center" style={{ flex: 1 }} >
-            <View className="flex justify-center items-center ">
-              <Image source={finger} className="object-cover" />
+          <View className=" justify-end" style={{flex:0}}>
+            <View className="flex justify-center items-center pt-5">
+              <Image source={finger} className="object-cover w-[48.21px] h-[41px]" />
             </View>
-            <View className=" flex justify-center items-center top-[10px]">
-              <Text className="w-[120px] m-auto h-[4px] rounded-full  bg-white"></Text>
+            <View className=" flex pt-[50px] pb-2 ">
+              <Text className="w-[116px] m-auto h-[8.07px] rounded-full  bg-white"></Text>
             </View>
           </View>
         </View>

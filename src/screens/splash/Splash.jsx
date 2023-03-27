@@ -39,7 +39,7 @@ const Splash = () => {
               </Text>
             </View>
             <View className="top-[30px]">
-            <TouchableOpacity className=" rounded-full h-[50px] w-[315px] bg-[#7853FF] mt-[20px] text-center text-white">
+            <TouchableOpacity  onPress={() => navigation.navigate('login')} className=" rounded-full h-[50px] w-[315px] bg-[#7853FF] mt-[20px] text-center text-white">
               <Text className="text-center items-center pt-3 text-white font-medium">
                 Login
               </Text>
