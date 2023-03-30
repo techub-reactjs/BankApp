@@ -1,42 +1,15 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { LinearGradient } from "expo-linear-gradient";
-// import facebook from "../../assests/Images/facebook-color.png";
-// import apple from "../../assests/Images/apple-color.png";
-// import google from "../../assests/Images/google-color.png";
-import Popup from "../../util/Popup/Popup";
 import OTPInputView from "@twotalltotems/react-native-otp-input";
-// import { useNavigation } from "@react-navigation/native";
-import MaskedView from '@react-native-masked-view/masked-view';
+import { LinearGradient } from "expo-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
 const PhoneVerify = () => {
-  // const navigation = useNavigation();
+  const navigation = useNavigation();
 
-  const [show, setShow] = useState(false);
-
-  const users = [
-    [1, 0.1],
-    [0.1, 1],
-  ];
-  const [newUser, setnewUser] = useState(0);
-
-  useEffect(() => {
-    const intervalID = setInterval(() => {
-      let currentIdx = newUser;
-      setnewUser(currentIdx + 1);
-    }, 2500);
-    return () => clearInterval(intervalID);
-  }, [newUser]);
-
-  let textThatChanges = users[newUser % users.length];
   return (
     <>
-      {show && <Popup modalVisible={show} setModalVisible={setShow} />}
-      {/* <LinearGradient
-        className="h-full flex-1"
-        colors={["#4965E0", "#896CDD"]}
-        end={textThatChanges}
-      > */}
+    
       <View className="bg-white h-full">
         <StatusBar hidden={true} />
         <View
@@ -44,7 +17,7 @@ const PhoneVerify = () => {
           className="px-5 pt-[122px] flex justify-start items-center"
         >
           <View className="text-center flex justify-center items-center pb-6">
-            <Text className="text-[20px] text-[#282B29] ">
+            <Text className="text-[24px] text-[#282B29] font-bold ">
               OTP Verification
             </Text>
           </View>
@@ -72,47 +45,23 @@ const PhoneVerify = () => {
             <Text className="text-[#282B29] text-[16px]">
               I didn't receive code.
             </Text>
-            <MaskedView
-              style={{ flex:1,  flexDirection: "row", height: "100%" }}
-              maskElement={
-                <View
-                className=" "
-                  
-                >
-                  <Text
-                  
-                  >
-                    Resend Code
-                  </Text>
-                </View>
-              }
-            >
-              {/* Shows behind the mask, you can put anything here, such as an image */}
-              <View
-                style={{ flex: 1, height: "100%", backgroundColor: "#4965E0" }}
-              />
-              <View
-                style={{ flex: 1, height: "100%", backgroundColor: "#896CDD" }}
-              />
-             
-            </MaskedView>
+            <Text className="text-[#4965E0] text-[16px]">Resend Code</Text>
           </View>
-          <View>
-            <Text>1:20 Sec left</Text>
+          <View className="py-2">
+            <Text className="text-[#EE6767] text-[16px]">1:20 Sec left</Text>
           </View>
 
-          <LinearGradient
-            className="h-full flex-1"
-            colors={["#4965E0", "#896CDD"]}
-            end={[1, 0.1]}
-          >
-            <TouchableOpacity>
-              <Text>Verify</Text>
-            </TouchableOpacity>
-          </LinearGradient>
+          <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
+            <LinearGradient
+              className=" w-[342px] mt-6 rounded-[12px] h-[51px] flex justify-center items-center"
+              colors={["#4965E0", "#896CDD"]}
+              end={[1, 0.1]}
+            >
+              <Text className="text-white text-[16px]">Verify</Text>
+            </LinearGradient>
+          </TouchableOpacity>
         </View>
       </View>
-      {/* </LinearGradient> */}
     </>
   );
 };

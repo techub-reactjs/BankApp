@@ -19,7 +19,7 @@ const Login = () => {
     [0.1, 1],
   ];
   const [newUser, setnewUser] = useState(0);
-  const [color, setColor] = useState(0);
+  // const [color, setColor] = useState(0);
 
   useEffect(() => {
     const intervalID = setInterval(() => {
@@ -31,12 +31,7 @@ const Login = () => {
 
   let textThatChanges = users[newUser % users.length];
   return (
-    <LinearGradient
-      className="h-full flex-1"
-      colors={["#4965E0", "#896CDD"]}
-      end={textThatChanges}
-    >
-      {/* <View className="bg-white "> */}
+    <View className="bg-white flex-1">
       <StatusBar hidden={true} />
       <View className="" style={{ flex: 2 }}>
         <View className="flex justify-center items-center top-[33px]">
@@ -51,7 +46,7 @@ const Login = () => {
 
       <View style={{ flex: 2 }} className="px-5 pt-8">
         <View className="text-center flex justify-center items-center pb-6">
-          <Text className="text-[20px] ">Sign in to continue</Text>
+          <Text className="text-[20px] text-[#282B29] ">Sign in to continue</Text>
         </View>
 
         <View className="pb-[10px]">
@@ -64,9 +59,7 @@ const Login = () => {
             <TextInput
               placeholder="gladys.warren@email.com"
               type="email"
-              className={`${
-                color === 3 ? "bg-white" : "bg-transparent"
-              } rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
+              className={`bg-white rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
             />
 
             <Text className="absolute bg-white px-2 left-6 -top-2 text-[14px]">
@@ -103,18 +96,21 @@ const Login = () => {
           </LinearGradient>
         </View>
 
-        <View className="flex justify-end items-end pb-[20px]">
+        <Pressable  onPress={() => navigation.navigate("forgotPassword")} className="flex justify-end items-end pb-[20px]">
           <Text className="  text-[14px]">Forgot Password?</Text>
-        </View>
+        </Pressable>
 
-        <Pressable className="pb-[10px]" onPress={() => navigation.navigate('phoneVerify')}>
+        <Pressable
+          className="pb-[10px]"
+          onPress={() => navigation.navigate("phoneVerify")}
+        >
           <LinearGradient
             colors={["#4965E0", "#896CDD"]}
             end={[1, 0.1]}
             style={{ padding: 2, borderRadius: 12, height: 50 }}
             className="flex justify-center items-center"
           >
-            <Text className=" text-white text-[14px]" >Sign in</Text>
+            <Text className=" text-white text-[14px]">Sign in</Text>
           </LinearGradient>
         </Pressable>
       </View>
@@ -125,7 +121,7 @@ const Login = () => {
       >
         <View className="  flex flex-row justify-between items-center ">
           <View className="border bg-[#D6D6D6] border-[#D6D6D6] w-[30%]"></View>
-          <Text className="text-center px-5 text-white">or sign in with</Text>
+          <Text className="text-center px-5 text-[#282B29]">or sign in with</Text>
           <View className="border bg-[#D6D6D6] border-[#D6D6D6] w-[30%] "></View>
         </View>
         <View className="flex flex-row justify-center pt-8">
@@ -140,16 +136,22 @@ const Login = () => {
 
       <View className=" justify-end" style={{ flex: 0 }}>
         <View className="flex justify-center items-center pt-5">
-          <Text className="text-white text-[14px]">
+          <Text className="text-[#282B29] text-[14px]">
             Don’t have account? Sign up.{" "}
           </Text>
         </View>
         <View className=" flex pt-[50px] pb-2 ">
-          <Text className="w-[116px] m-auto h-[8.07px] rounded-full  bg-white"></Text>
+        <LinearGradient
+            colors={["#4965E0", "#896CDD"]}
+            end={[1, 0.1]}
+            style={{ borderRadius: 12, height: 8 }}
+            className="w-[116px] m-auto  rounded-full"
+          >
+          </LinearGradient>
+          {/* <Text className="w-[116px] m-auto h-[8.07px] rounded-full  bg-white"></Text> */}
         </View>
       </View>
-      {/* </View> */}
-    </LinearGradient>
+    </View>
   );
 };
 

@@ -63,7 +63,7 @@ const Register = () => {
                 Lorem Ipsum is simply dummy text of the printing and{" "}
               </Text>
             </View>
-            <Pressable className="" onPress={() => navigation.navigate('EmailSignup')} >
+            <Pressable  onPress={() => navigation.navigate('EmailSignup')} >
               <Text className="text-[18px] text-center text-white">
                 Register with Email
               </Text>

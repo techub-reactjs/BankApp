@@ -1,21 +1,33 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Modal , StyleSheet } from "react-native";
+import React from "react";
 
-const Popup = ({ modalVisible , setModalVisible , data }) => {
+const Popup = ({ modalVisible, setModalVisible, data }) => {
   return (
-    <View>
-       <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}
-      >
+  <View style={styles.centeredView}>
+    <Modal
+      animationType="slide"
+      transparent={true}
+      visible={modalVisible}
+      onRequestClose={() => {
+        Alert.alert('Modal has been closed.');
+        setModalVisible(!modalVisible);
+      }}>
+      <View style={styles.centeredView}>
         {data}
-        </Modal>
+      </View>
+      </Modal>
     </View>
-  )
-}
+  );
+};
 
-export default Popup
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  
+})
+
+export default Popup;

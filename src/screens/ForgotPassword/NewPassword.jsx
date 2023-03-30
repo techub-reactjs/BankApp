@@ -1,148 +1,79 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import React, { useEffect, useState } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
-// import facebook from "../../assests/Images/facebook-color.png";
-// import apple from "../../assests/Images/apple-color.png";
-// import google from "../../assests/Images/google-color.png";
-import Popup from "../../util/Popup/Popup";
-import OTPInputView from "@twotalltotems/react-native-otp-input";
-// import { useNavigation } from "@react-navigation/native";
-import MaskedView from '@react-native-masked-view/masked-view';
-const NewPassword = () => {
-  // const navigation = useNavigation();
+import { useNavigation } from "@react-navigation/native";
+import { TextInput } from "react-native";
+import Icon from "react-native-vector-icons/Feather";
 
+const NewPassword = () => {
+  const navigation = useNavigation();
   const [show, setShow] = useState(false);
 
-  const users = [
-    [1, 0.1],
-    [0.1, 1],
-  ];
-  const [newUser, setnewUser] = useState(0);
-
-  useEffect(() => {
-    const intervalID = setInterval(() => {
-      let currentIdx = newUser;
-      setnewUser(currentIdx + 1);
-    }, 2500);
-    return () => clearInterval(intervalID);
-  }, [newUser]);
-
-  let textThatChanges = users[newUser % users.length];
   return (
     <>
-      {show && <Popup modalVisible={show} setModalVisible={setShow} />}
-      {/* <LinearGradient
-        className="h-full flex-1"
-        colors={["#4965E0", "#896CDD"]}
-        end={textThatChanges}
-      > */}
       <View className="bg-white h-full">
         <StatusBar hidden={true} />
         <View
           style={{ flex: 1 }}
-          className="px-5 pt-[122px] flex justify-start items-center"
+          className="px-5 pt-[122px] flex justify-start items-center "
         >
-          <View className="text-center flex justify-center items-center pb-6">
-            <Text className="text-[20px] text-[#282B29] ">
-              OTP Verification
-            </Text>
+          <View className=" px-2 flex items-center justify-center  h-[50px] rounded-full bg-[#C2C2C2] w-[315px]">
+            <View className=" justify-between flex-row  items-center flex w-full bg-transparent rounded-[12px] placeholder:text-[16px] pt  px-2">
+              <TextInput
+                placeholder="Password"
+                secureTextEntry={show ? true : false}
+                type="text"
+                className=""
+              />
+
+              <Icon
+                onPress={() => setShow(!show)}
+                name={show ? "eye-off" : "eye"}
+                size={20}
+                color={"black"}
+              />
+            </View>
           </View>
 
-          <View className="flex justify-center items-center ">
-            <Text className="  text-[16px] text-[#C2C2C2]">
-              An authentication code has been sent to
-            </Text>
-            <Text className="  text-[16px]">(+880) 111 222 333</Text>
+          <View className=" mt-[35px] px-2 flex items-center justify-center  h-[50px] rounded-full bg-[#C2C2C2] w-[315px]">
+            <View className=" justify-between flex-row  items-center flex w-full bg-transparent rounded-[12px] placeholder:text-[16px] pt  px-2">
+              <TextInput
+                placeholder="Password"
+                secureTextEntry={show ? true : false}
+                type="text"
+                className=""
+              />
+
+              <Icon
+                onPress={() => setShow(!show)}
+                name={show ? "eye-off" : "eye"}
+                size={20}
+                color={"black"}
+              />
+            </View>
           </View>
 
-          <View>
-            <OTPInputView
-              style={{ width: "80%", height: 200 }}
-              pinCount={4}
-              autoFocusOnLoad
-              codeInputFieldStyle={styles.underlineStyleBase}
-              codeInputHighlightStyle={styles.underlineStyleHighLighted}
-              onCodeFilled={(code) => {
-                console.log(`Code is ${code}, you are good to go!`);
-              }}
-            />
-          </View>
-          <View className="flex items-center justify-center flex-row text-center">
-            <Text className="text-[#282B29] text-[16px]">
-              I didn't receive code.
-            </Text>
-            <MaskedView
-              style={{ flex:1,  flexDirection: "row", height: "100%" }}
-              maskElement={
-                <View
-                className=" "
-                  
-                >
-                  <Text
-                  
-                  >
-                    Resend Code
-                  </Text>
-                </View>
-              }
+       
+
+          <View className="">
+            <TouchableOpacity
+              onPress={() => navigation.navigate("ChangePassword")}
             >
-              {/* Shows behind the mask, you can put anything here, such as an image */}
-              <View
-                style={{ flex: 1, height: "100%", backgroundColor: "#4965E0" }}
-              />
-              <View
-                style={{ flex: 1, height: "100%", backgroundColor: "#896CDD" }}
-              />
-             
-            </MaskedView>
-          </View>
-          <View>
-            <Text>1:20 Sec left</Text>
-          </View>
-
-          <LinearGradient
-            className="h-full flex-1"
-            colors={["#4965E0", "#896CDD"]}
-            end={[1, 0.1]}
-          >
-            <TouchableOpacity>
-              <Text>Verify</Text>
+              <LinearGradient
+                className=" w-[342px] mt-[104px] rounded-[12px] h-[51px] flex justify-center items-center"
+                colors={["#4965E0", "#896CDD"]}
+                end={[1, 0.1]}
+              >
+                <Text className="text-white text-[16px]">Send</Text>
+              </LinearGradient>
             </TouchableOpacity>
-          </LinearGradient>
+          </View>
         </View>
       </View>
       {/* </LinearGradient> */}
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  borderStyleBase: {
-    width: 30,
-    height: 45,
-    display: "flex",
-    justifyContent: "space-between",
-  },
-
-  borderStyleHighLighted: {
-    borderColor: "#4965E0",
-  },
-
-  underlineStyleBase: {
-    width: 66,
-    height: 66,
-    borderBottomWidth: 1,
-    borderRadius: 15,
-    backgroundColor: "#C2C2C2",
-    color: "#4965E0",
-    fontSize: 24,
-    fontWeight: "bold",
-  },
-
-  underlineStyleHighLighted: {
-    borderColor: "#4965E0",
-  },
-});
 
 export default NewPassword;

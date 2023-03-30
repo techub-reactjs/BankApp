@@ -1,15 +1,15 @@
-import { View, Image, TextInput } from "react-native";
-import React, {  useState } from "react";
+import { View, Image, TextInput, Pressable } from "react-native";
+import React, { useState } from "react";
 import user from "../../assests/Images/signup1.png";
 import finger from "../../assests/Images/EmailFinger.png";
 import Icon from "react-native-vector-icons/Feather";
-const ERegister = () => {
+import { LinearGradient } from "expo-linear-gradient";
+const ERegister = ({ activeData }) => {
   const [show, setShow] = useState(false);
-   
   return (
     <>
-        <View className="" style={{ flex: 0 }}>
-        <View className="flex justify-center items-center top-[14px]">
+      <View style={{ flex: 0 }}>
+        {/* <View className="flex justify-center items-center top-[14px]">
           <View className=" w-[140px] h-[140px]  rounded-full">
             <LinearGradient
               colors={["#4965E0", "#896CDD"]}
@@ -34,7 +34,7 @@ const ERegister = () => {
               </View>
             </LinearGradient>
           </View>
-        </View>
+        </View> */}
       </View>
       <View style={{ flex: 2 }} className="px-5 pt-8">
         <View className="pb-[10px]">
@@ -46,9 +46,7 @@ const ERegister = () => {
             <TextInput
               placeholder="Gladys"
               type="text"
-              className={`${
-                color === 3 ? "bg-white" : "bg-transparent"
-              } rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
+              className={` rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
             />
           </LinearGradient>
         </View>
@@ -61,9 +59,7 @@ const ERegister = () => {
             <TextInput
               placeholder="Warren"
               type="text"
-              className={`${
-                color === 3 ? "bg-white" : "bg-transparent"
-              } rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
+              className={` rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
             />
           </LinearGradient>
         </View>
@@ -76,9 +72,7 @@ const ERegister = () => {
             <TextInput
               placeholder="gladys.warren@email.com"
               type="email"
-              className={`${
-                color === 3 ? "bg-white" : "bg-transparent"
-              } rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
+              className={` rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
             />
           </LinearGradient>
         </View>
@@ -91,9 +85,7 @@ const ERegister = () => {
             <TextInput
               placeholder="(219) 555-0114"
               type="tel"
-              className={`${
-                color === 3 ? "bg-white" : "bg-transparent"
-              } rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
+              className={` rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
             />
           </LinearGradient>
         </View>
@@ -106,9 +98,7 @@ const ERegister = () => {
             <TextInput
               placeholder="12304959-65945-232"
               type="numeric"
-              className={`${
-                color === 3 ? "bg-white" : "bg-transparent"
-              } rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
+              className={` rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
             />
           </LinearGradient>
         </View>
@@ -158,12 +148,12 @@ const ERegister = () => {
             </View>
           </LinearGradient>
         </View>
-        <View>
+        <Pressable onPress={() => activeData(true)}>
           <Image source={finger} className="object-cover" />
-        </View>
+        </Pressable>
       </View>
     </>
-  )
-}
+  );
+};
 
-export default ERegister
+export default ERegister;

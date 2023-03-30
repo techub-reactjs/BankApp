@@ -5,9 +5,12 @@ import BottomTabNavigator from "./BottomTabNavigator";
 import Splash from "../screens/splash/Splash";
 import Register from "../screens/Register/Register";
 import EmailRegister from "../screens/Register/EmailRegister";
-import { LinearGradient } from "expo-linear-gradient";
-import Login from "../screens/Register/Login";
+// import { LinearGradient } from "expo-linear-gradient";
+import Login from "../screens/Login/Login";
 import PhoneVerify from "../screens/Register/PhoneVerify";
+import ForgotPassword from "../screens/ForgotPassword/ForgotPassword";
+import ForgotVerify from "../screens/ForgotPassword/ForgotVerify";
+import NewPassword from "../screens/ForgotPassword/NewPassword";
 
 const Stack = createStackNavigator();
 
@@ -39,7 +42,9 @@ function AuthNavigator() {
         options={{ headerShown: false }}
       />
       <Stack.Group
-        screenOptions={{  headerStyle: { backgroundColor: "#4965E0", height: 90 }}}
+        screenOptions={{
+          headerStyle: { backgroundColor: "#4965E0", height: 90 },
+        }}
       >
         <Stack.Screen
           name="EmailSignup"
@@ -59,11 +64,39 @@ function AuthNavigator() {
             headerTitleAlign: "center",
           }}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="phoneVerify"
           component={PhoneVerify}
           options={{
             title: "Phone verification",
+            headerTintColor: "white",
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="forgotPassword"
+          component={ForgotPassword}
+          options={{
+            title: "Forgot Password",
+            headerTintColor: "white",
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="forgotVerify"
+          component={ForgotVerify}
+          options={{
+            title: "Forgot Password",
+            headerTintColor: "white",
+            headerTitleAlign: "center",
+          }}
+        />
+
+        <Stack.Screen
+          name="ChangePassword"
+          component={NewPassword}
+          options={{
+            title: "Change Password",
             headerTintColor: "white",
             headerTitleAlign: "center",
           }}
