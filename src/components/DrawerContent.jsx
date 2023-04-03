@@ -1,12 +1,6 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
-import {
-  useTheme,
-  Title,
-  Caption,
-  Drawer,
-
-} from "react-native-paper";
+import { View, StyleSheet, Image, Text } from "react-native";
+import { useTheme, Title, Caption, Drawer } from "react-native-paper";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import user from "../assests/Images/Mask.png";
 import doller from "../assests/Images/doller.png";
@@ -18,7 +12,7 @@ import save from "../assests/Images/save.png";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Icons from "react-native-vector-icons/Fontisto";
 const DrawerContent = (props) => {
-  const paperTheme = useTheme();
+  // const paperTheme = useTheme();
 
   return (
     <View style={{ flex: 1 }}>
@@ -26,7 +20,12 @@ const DrawerContent = (props) => {
         <View style={styles.drawerContent}>
           <View style={styles.userInfoSection}>
             <View style={{ flexDirection: "row", marginTop: 15 }}>
-              <Image source={user} size={50} />
+              <View className="relative">
+                <Image source={user} size={50} />
+                <View className="absolute bottom-2 right-0 ">
+                  <Text className=" rounded-full bg-[#20C968] w-[10px] h-[10px]"></Text>
+                </View>
+              </View>
               <View style={{ marginLeft: 15, flexDirection: "column" }}>
                 <Title style={styles.title}>John Doe</Title>
                 <Caption style={styles.caption}>@j_doe</Caption>
@@ -37,16 +36,11 @@ const DrawerContent = (props) => {
           <Drawer.Section style={styles.drawerSection}>
             <DrawerItem
               icon={({ color, size }) => (
-                <Icons
-                name="dollar"
-                color={color}
-                size={size}
-                />
+                <Icons name="dollar" color={color} size={size} />
 
                 // <Image source={doller} resizeMode="cover" />
               )}
               inactiveTintColor="#4965E0"
-            
               label="Payment"
               style={{ backgroundColor: "#E7F0FF" }}
               onPress={() => {
@@ -55,11 +49,7 @@ const DrawerContent = (props) => {
             />
             <DrawerItem
               icon={({ color, size }) => (
-                <Icons
-                name="arrow-swap"
-                color={color}
-                size={size}
-                />
+                <Icons name="arrow-swap" color={color} size={size} />
                 // <Image source={trans} resizeMode="cover" />
               )}
               label="Transaction"
@@ -126,6 +116,7 @@ const styles = StyleSheet.create({
   drawerContent: {
     flex: 1,
     paddingVertical: 50,
+
   },
   userInfoSection: {
     paddingLeft: 20,
@@ -155,10 +146,12 @@ const styles = StyleSheet.create({
   },
   drawerSection: {
     marginTop: 15,
+    
+  
   },
   bottomDrawerSection: {
     marginBottom: 15,
-    marginHorizontal:15,
+    marginHorizontal: 15,
     backgroundColor: "#4965E0",
     borderRadius: 10,
   },

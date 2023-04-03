@@ -1,7 +1,7 @@
 import { View, Image, TextInput, Pressable } from "react-native";
 import React, { useState } from "react";
-import user from "../../assests/Images/signup1.png";
-import finger from "../../assests/Images/EmailFinger.png";
+import user from "../assests/Images/signup1.png";
+import finger from "../assests/Images/EmailFinger.png";
 import Icon from "react-native-vector-icons/Feather";
 import { LinearGradient } from "expo-linear-gradient";
 const ERegister = ({ activeData }) => {
@@ -9,7 +9,7 @@ const ERegister = ({ activeData }) => {
   return (
     <>
       <View style={{ flex: 0 }}>
-        {/* <View className="flex justify-center items-center top-[14px]">
+        <View className="flex justify-center items-center top-[14px]">
           <View className=" w-[140px] h-[140px]  rounded-full">
             <LinearGradient
               colors={["#4965E0", "#896CDD"]}
@@ -34,7 +34,7 @@ const ERegister = ({ activeData }) => {
               </View>
             </LinearGradient>
           </View>
-        </View> */}
+        </View>
       </View>
       <View style={{ flex: 2 }} className="px-5 pt-8">
         <View className="pb-[10px]">
@@ -46,7 +46,7 @@ const ERegister = ({ activeData }) => {
             <TextInput
               placeholder="Gladys"
               type="text"
-              className={` rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
+              className={` rounded-[12px] bg-white placeholder:text-[16px] h-[46px] px-2`}
             />
           </LinearGradient>
         </View>
@@ -59,7 +59,7 @@ const ERegister = ({ activeData }) => {
             <TextInput
               placeholder="Warren"
               type="text"
-              className={` rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
+              className={` rounded-[12px] bg-white placeholder:text-[16px] h-[46px] px-2`}
             />
           </LinearGradient>
         </View>
@@ -72,7 +72,7 @@ const ERegister = ({ activeData }) => {
             <TextInput
               placeholder="gladys.warren@email.com"
               type="email"
-              className={` rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
+              className={` rounded-[12px] bg-white placeholder:text-[16px] h-[46px] px-2`}
             />
           </LinearGradient>
         </View>
@@ -85,7 +85,7 @@ const ERegister = ({ activeData }) => {
             <TextInput
               placeholder="(219) 555-0114"
               type="tel"
-              className={` rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
+              className={` rounded-[12px] bg-white placeholder:text-[16px] h-[46px] px-2`}
             />
           </LinearGradient>
         </View>
@@ -98,7 +98,7 @@ const ERegister = ({ activeData }) => {
             <TextInput
               placeholder="12304959-65945-232"
               type="numeric"
-              className={` rounded-[12px] placeholder:text-[16px] h-[46px] px-2`}
+              className={` rounded-[12px] bg-white placeholder:text-[16px] h-[46px] px-2`}
             />
           </LinearGradient>
         </View>
@@ -108,7 +108,7 @@ const ERegister = ({ activeData }) => {
             end={[1, 0.1]}
             style={{ padding: 2, borderRadius: 12, height: 50 }}
           >
-            <View className=" justify-between flex-row  items-center flex w-full bg-white rounded-[12px] placeholder:text-[16px] h-[46px] px-2">
+            <View className=" justify-between flex-row  items-center flex w-full bg-white rounded-[12px] bg-white placeholder:text-[16px] h-[46px] px-2">
               <TextInput
                 placeholder="......"
                 secureTextEntry={show ? true : false}
@@ -131,7 +131,7 @@ const ERegister = ({ activeData }) => {
             end={[1, 0.1]}
             style={{ padding: 2, borderRadius: 12, height: 50 }}
           >
-            <View className=" justify-between flex-row  items-center flex w-full bg-white rounded-[12px] placeholder:text-[16px] h-[46px] px-2">
+            <View className=" justify-between flex-row  items-center flex w-full bg-white rounded-[12px] bg-white placeholder:text-[16px] h-[46px] px-2">
               <TextInput
                 placeholder="......"
                 secureTextEntry={show ? true : false}
